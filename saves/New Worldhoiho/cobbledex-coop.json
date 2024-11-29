@@ -1,0 +1,12 @@
+{
+  "registers": {
+    "sprigatito": {
+      "normal": {
+        "isShiny": false,
+        "status": "CAUGHT",
+        "discoveredTimestamp": 1732494428818,
+        "caughtTimestamp": 1732494428818
+      }
+    }
+  }
+}

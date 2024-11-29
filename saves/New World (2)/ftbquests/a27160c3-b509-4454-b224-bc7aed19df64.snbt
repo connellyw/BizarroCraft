@@ -1,0 +1,12 @@
+{
+	version: 1
+	uuid: "a27160c3b5094454b224bc7aed19df64"
+	name: "UJackwagon99#a27160c3"
+	lock: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	claimed_rewards: { }
+	player_data: { }
+}

@@ -1,0 +1,12 @@
+{
+  "registers": {
+    "grookey": {
+      "normal": {
+        "isShiny": false,
+        "status": "CAUGHT",
+        "discoveredTimestamp": 1732431097373,
+        "caughtTimestamp": 1732431097373
+      }
+    }
+  }
+}

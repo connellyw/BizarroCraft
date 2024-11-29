@@ -1,0 +1,12 @@
+{
+	version: 1
+	uuid: "de14ba32d21b45f2ae6bf4e4a75518ea"
+	name: "robbob900#de14ba32"
+	lock: false
+	rewards_blocked: false
+	task_progress: { }
+	started: { }
+	completed: { }
+	claimed_rewards: { }
+	player_data: { }
+}

@@ -1,0 +1,12 @@
+{
+  "registers": {
+    "snivy": {
+      "normal": {
+        "isShiny": false,
+        "status": "CAUGHT",
+        "discoveredTimestamp": 1732502325056,
+        "caughtTimestamp": 1732502325056
+      }
+    }
+  }
+}
