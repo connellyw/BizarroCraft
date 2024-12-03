@@ -1,0 +1,11 @@
+#572 terralith:arid_highlands
+#556 minecraft:beach
+#184 terralith:brushland
+#79D terralith:cave/andesite_caves
+#1A6 terralith:cave/granite_caves
+#4E2 terralith:hot_shrubland
+#79A minecraft:lukewarm_ocean
+#4F1 minecraft:ocean
+#5FF minecraft:river
+#67B minecraft:savanna
+#039 terralith:savanna_badlands

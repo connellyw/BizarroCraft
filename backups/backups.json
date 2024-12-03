@@ -38,6 +38,19 @@
       "backupName": "automated",
       "backupFormat": "ZIP",
       "complete": true
+    },
+    {
+      "worldName": "New World",
+      "createTime": 1733189400079,
+      "backupLocation": "C:\\Users\\Liam\\AppData\\Local\\.ftba\\instances\\bizarrocraft (2)\\backups\\2024-12-2_20-30-0.zip",
+      "size": 6932750,
+      "ratio": 0.7798981,
+      "sha1": "8be3930ad538d52e8d7effe5f7e4caa4c6ae52c8",
+      "preview": "",
+      "snapshot": false,
+      "backupName": "automated",
+      "backupFormat": "ZIP",
+      "complete": true
     }
   ]
 }

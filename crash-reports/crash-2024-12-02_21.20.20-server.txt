@@ -1,0 +1,315 @@
+---- Minecraft Crash Report ----
+// Uh... Did I do that?
+
+Time: 2024-12-02 21:20:20
+Description: Exception in server tick loop
+
+org.valkyrienskies.core.impl.util.assertions.stages.ConstraintFailedException: Constraints failed. Stages since last reset: [PRE_TICK, GET_LAST_TICK_CHANGES, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, UPDATE_CHUNKS, POST_TICK_START, POST_TICK_GENERATED, POST_TICK_FINISH, GET_CURRENT_TICK_CHANGES, CLEAR_FOR_RESET, UPDATE_DIMENSIONS, UPDATE_PLAYERS]
+Required stages matching predicate in the following order: [PRE_TICK, oneOf[UPDATE_DIMENSIONS, UPDATE_BLOCKS, UPDATE_CHUNKS], POST_TICK_START, POST_TICK_GENERATED, POST_TICK_FINISH, CLEAR_FOR_RESET, UPDATE_PLAYERS]
+	at org.valkyrienskies.core.impl.util.assertions.stages.TickStageEnforcerImpl.stage(Unknown Source) ~[valkyrienskies-120-2.3.0-beta.5.jar%23546!/:?] {re:classloading}
+	at org.valkyrienskies.core.impl.game.ships.ShipObjectServerWorld.setPlayers(Unknown Source) ~[valkyrienskies-120-2.3.0-beta.5.jar%23546!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.handler$bhe000$preTick(MinecraftServer.java:3486) ~[client-1.20.1-20230612.114412-srg.jar%23562!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.m_5705_(MinecraftServer.java) ~[client-1.20.1-20230612.114412-srg.jar%23562!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.client.server.IntegratedServer.m_5705_(IntegratedServer.java:89) ~[client-1.20.1-20230612.114412-srg.jar%23562!/:?] {re:mixin,pl:runtimedistcleaner:A,re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.m_130011_(MinecraftServer.java:661) ~[client-1.20.1-20230612.114412-srg.jar%23562!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at net.minecraft.server.MinecraftServer.m_206580_(MinecraftServer.java:251) ~[client-1.20.1-20230612.114412-srg.jar%23562!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:A}
+	at java.lang.Thread.run(Unknown Source) ~[?:?] {re:mixin}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Cobblemon --
+Details:
+	Version: 1.5.2
+	Is Snapshot: false
+	Git Commit: df8f078 (https://gitlab.com/cable-mc/cobblemon/-/commit/df8f078d13702ab9a000438910b822ceffbb2248)
+	Branch: HEAD
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 11 (amd64) version 10.0
+	Java Version: 17.0.11, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 3646907080 bytes (3477 MiB) / 10737418240 bytes (10240 MiB) up to 10737418240 bytes (10240 MiB)
+	CPUs: 32
+	Processor Vendor: GenuineIntel
+	Processor Name: 13th Gen Intel(R) Core(TM) i9-13900KS
+	Identifier: Intel64 Family 6 Model 183 Stepping 1
+	Microarchitecture: unknown
+	Frequency (GHz): 3.19
+	Number of physical packages: 1
+	Number of physical CPUs: 24
+	Number of logical CPUs: 32
+	Graphics card #0 name: Intel(R) UHD Graphics 770
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MB): 2048.00
+	Graphics card #0 deviceId: 0xa780
+	Graphics card #0 versionInfo: DriverVersion=32.0.101.5972
+	Graphics card #1 name: NVIDIA GeForce RTX 4090
+	Graphics card #1 vendor: NVIDIA (0x10de)
+	Graphics card #1 VRAM (MB): 4095.00
+	Graphics card #1 deviceId: 0x2684
+	Graphics card #1 versionInfo: DriverVersion=32.0.15.6614
+	Memory slot #0 capacity (MB): 16384.00
+	Memory slot #0 clockSpeed (GHz): 4.00
+	Memory slot #0 type: Unknown
+	Memory slot #1 capacity (MB): 16384.00
+	Memory slot #1 clockSpeed (GHz): 4.00
+	Memory slot #1 type: Unknown
+	Memory slot #2 capacity (MB): 16384.00
+	Memory slot #2 clockSpeed (GHz): 4.00
+	Memory slot #2 type: Unknown
+	Memory slot #3 capacity (MB): 16384.00
+	Memory slot #3 clockSpeed (GHz): 4.00
+	Memory slot #3 type: Unknown
+	Virtual memory max (MB): 69405.81
+	Virtual memory used (MB): 42492.91
+	Swap memory total (MB): 4096.00
+	Swap memory used (MB): 0.00
+	JVM Flags: 8 total; -Xmx10240M -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['UJackwagon99'/1092, l='ServerLevel[New World]', x=92.30, y=88.00, z=105.21]]
+	Data Packs: vanilla, mod:betterdungeons, mod:quarryplus, mod:botarium (incompatible), mod:integratedterminals, mod:mffs, mod:forgeendertech, mod:evilcraft, mod:yungsapi, mod:wstweaks (incompatible), mod:keybindspurger, mod:apotheosis (incompatible), mod:balm, mod:betterfortresses, mod:cloth_config (incompatible), mod:novillagerdm, mod:glodium (incompatible), mod:ae2insertexportcard, mod:industrialforegoing (incompatible), mod:structurecompass, mod:moredragons, mod:heyberryshutup (incompatible), mod:yungsbridges, mod:botania, mod:resourcefulconfig (incompatible), mod:integratedscripting, mod:spark (incompatible), mod:curios (incompatible), mod:corail_woodcutter, mod:searchables (incompatible), mod:measurements, mod:cobblemon (incompatible), mod:nuclearscience, mod:attributeslib (incompatible), mod:butchersdelightfoods, mod:tombstone, mod:fightorflight (incompatible), mod:naturesaura (incompatible), mod:butchersdelight, mod:apothiccurios (incompatible), mod:betterendisland, mod:adchimneys, mod:codechickenlib (incompatible), mod:bettermineshafts, mod:crafting_on_a_stick (incompatible), mod:betterjungletemples, mod:smartbrainlib, mod:jei, mod:tardis_refined (incompatible), mod:attributefix (incompatible), mod:create_cobblemon, mod:ccbx (incompatible), mod:fastasyncworldsave (incompatible), mod:naturescompass, mod:extra_shells (incompatible), mod:adhooks, mod:farmingforblockheads, mod:pneumaticcraft (incompatible), mod:evilcraftdelight, mod:electrodynamics, mod:jeitweaker (incompatible), mod:fusion, mod:crafttweaker (incompatible), mod:mekanism, mod:edivadlib, mod:forge, mod:integratedcrafting, mod:zerocore (incompatible), mod:cofh_core, mod:thermal, mod:thermal_integration, mod:thermal_innovation, mod:thermal_foundation, mod:thermal_locomotion, mod:thermal_dynamics, mod:mousetweaks, mod:immersiveengineering (incompatible), mod:alltheleaks, mod:adlods, mod:kotlinforforge (incompatible), mod:jeiintegration (incompatible), mod:flywheel, mod:integrateddynamics, mod:thermal_cultivation, mod:securitycraft, mod:ae2qolrecipes (incompatible), mod:immediatelyfast (incompatible), mod:oceansdelight (incompatible), mod:appleskin (incompatible), mod:vampirism, mod:lootr, mod:occultism, mod:deep_dark_regrowth, mod:valkyrienskies (incompatible), mod:extremesoundmuffler, mod:ad_astra (incompatible), mod:cyclopscore, mod:create_eureka (incompatible), mod:kuma_api (incompatible), mod:betterwitchhuts, mod:netherportalfix, mod:geckolib, mod:cave_dweller (incompatible), mod:ars_nouveau (incompatible), mod:betteroceanmonuments, mod:gpumemleakfix (incompatible), mod:vs_eureka (incompatible), mod:cookingforblockheads, mod:controlling (incompatible), mod:placebo (incompatible), mod:citadel (incompatible), mod:iceandfire, mod:mixinextras (incompatible), mod:bookshelf, mod:endercrop (incompatible), mod:evenmoredragons, mod:railways, mod:mekanismgenerators, mod:adpother, mod:dragonmounts, mod:dragon_mounts_patches, mod:prettypipes (incompatible), mod:arseng, mod:farmersdelight, mod:hostilenetworks (incompatible), mod:commoncapabilities, mod:crashutilities (incompatible), mod:simpletms, mod:getittogetherdrops, mod:mekanismadditions, mod:fuelgoeshere, mod:colorfulhearts, mod:industrialforegoingsouls (incompatible), mod:born_in_chaos_v1, mod:patchouli (incompatible), mod:ars_additions (incompatible), mod:blockui, mod:thermal_expansion, mod:integratedtunnels, mod:elevatorid, mod:ftbultimine (incompatible), mod:betterstrongholds, mod:resourcefullib (incompatible), mod:mekanismtools, mod:bridgingmod, mod:bjornlib, mod:deeperdarker, mod:architectury (incompatible), mod:ftblibrary (incompatible), mod:ftbfiltersystem, mod:findme (incompatible), mod:ftbteams (incompatible), mod:ftbquests (incompatible), mod:ftbranks, mod:ftbessentials (incompatible), mod:computercraft, mod:aiimprovements, mod:cupboard (incompatible), mod:bigreactors (incompatible), mod:ars_ocultas (incompatible), mod:productivebees, mod:monolib (incompatible), mod:disenchanting_table (incompatible), mod:bwncr, mod:ballistix, mod:polylib, mod:productivelib, mod:create, mod:ars_creo (incompatible), mod:waystones, mod:clumps (incompatible), mod:dimstorage, mod:charginggadgets (incompatible), mod:ftbbackups2 (incompatible), mod:explorerscompass, mod:toastcontrol (incompatible), mod:terralith, mod:enderstorage (incompatible), mod:ftbchunks (incompatible), mod:ftbxmodcompat (incompatible), mod:toofast (incompatible), mod:craftingtweaks, mod:endermanoverhaul (incompatible), mod:titanium (incompatible), mod:mixinsquared (incompatible), mod:jade (incompatible), mod:ae2 (incompatible), mod:ae2netanalyser (incompatible), mod:appflux (incompatible), mod:merequester (incompatible), mod:expatternprovider (incompatible), mod:advanced_ae, mod:theurgy, mod:enderio, mod:easy_villagers, mod:ars_elemental (incompatible), mod:appbot (incompatible), mod:buildinggadgets2 (incompatible), mod:modonomicon, mod:creeperoverhaul, mod:alexsdelight, mod:yet_another_config_lib_v3 (incompatible), mod:solcarrot (incompatible), mod:enhancedcelestials, mod:corgilib, mod:appmek (incompatible), mod:megacells (incompatible), mod:flickerfix, mod:productivetrees, mod:createaddition (incompatible)
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Experimental
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Launched Version: 1.20.1-forge-47.3.12
+	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
+	ModLauncher launch target: forgeclient
+	ModLauncher naming: srg
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.12.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.12.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.12.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.12.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.3.12.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.9.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.9.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		kotlinforforge@4.11.0
+		javafml@null
+		lowcodefml@null
+		kotori_scala@3.3.0-build-0
+	Mod List: 
+		YungsBetterDungeons-1.20-Forge-4.0.4.jar          |YUNG's Better Dungeons        |betterdungeons                |1.20-Forge-4.0.4    |DONE      |Manifest: NOSIGNATURE
+		AdditionalEnchantedMiner-1.20.1-1201.1.90.jar     |QuarryPlus                    |quarryplus                    |1201.1.90           |DONE      |Manifest: ef:50:af:b3:03:e0:3e:70:a7:ef:78:77:a5:4d:d4:b5:07:ec:df:9d:d6:f3:12:13:c9:3c:cd:9a:0a:3e:6b:43
+		botarium-forge-1.20.1-2.3.4.jar                   |Botarium                      |botarium                      |2.3.4               |DONE      |Manifest: NOSIGNATURE
+		IntegratedTerminals-1.20.1-1.6.2.jar              |IntegratedTerminals           |integratedterminals           |1.6.2               |DONE      |Manifest: NOSIGNATURE
+		mffs-5.1.9-all.jar                                |Modular Force Field System    |mffs                          |5.1.9               |DONE      |Manifest: NOSIGNATURE
+		ForgeEndertech-1.20.1-11.1.5.0-build.0890.jar     |ForgeEndertech                |forgeendertech                |11.1.5.0            |DONE      |Manifest: NOSIGNATURE
+		EvilCraft-1.20.1-1.2.48.jar                       |EvilCraft                     |evilcraft                     |1.2.48              |DONE      |Manifest: NOSIGNATURE
+		YungsApi-1.20-Forge-4.0.6.jar                     |YUNG's API                    |yungsapi                      |1.20-Forge-4.0.6    |DONE      |Manifest: NOSIGNATURE
+		WitherSkeletonTweaks-1.20.1-9.1.0.jar             |Wither Skeleton Tweaks        |wstweaks                      |9.1.0               |DONE      |Manifest: NOSIGNATURE
+		keybindspurger-1.20.1-forge-1.3.1.jar             |KeybindsPurger                |keybindspurger                |1.3.1               |DONE      |Manifest: NOSIGNATURE
+		Apotheosis-1.20.1-7.4.3.jar                       |Apotheosis                    |apotheosis                    |7.4.3               |DONE      |Manifest: NOSIGNATURE
+		balm-forge-1.20.1-7.3.9-all.jar                   |Balm                          |balm                          |7.3.9               |DONE      |Manifest: NOSIGNATURE
+		YungsBetterNetherFortresses-1.20-Forge-2.0.6.jar  |YUNG's Better Nether Fortresse|betterfortresses              |1.20-Forge-2.0.6    |DONE      |Manifest: NOSIGNATURE
+		cloth-config-11.1.136-forge.jar                   |Cloth Config v10 API          |cloth_config                  |11.1.136            |DONE      |Manifest: NOSIGNATURE
+		novillagerdm-1.20.1-5.0.0.jar                     |No Villager Death Messages    |novillagerdm                  |5.0.0               |DONE      |Manifest: NOSIGNATURE
+		Glodium-1.20-1.5-forge.jar                        |Glodium                       |glodium                       |1.20-1.5-forge      |DONE      |Manifest: NOSIGNATURE
+		ae2insertexportcard-1.20.1-1.3.0.jar              |AE2 Insert Export Card        |ae2insertexportcard           |1.20.1-1.3.0        |DONE      |Manifest: NOSIGNATURE
+		industrial-foregoing-1.20.1-3.5.19.jar            |Industrial Foregoing          |industrialforegoing           |3.5.19              |DONE      |Manifest: NOSIGNATURE
+		StructureCompass-1.20.1-2.1.0.jar                 |Structure Compass Mod         |structurecompass              |2.1.0               |DONE      |Manifest: NOSIGNATURE
+		moredragons-1.4.jar                               |More Dragons                  |moredragons                   |1.4                 |DONE      |Manifest: NOSIGNATURE
+		heyberryshutup-1.20.1-2.0.4.jar                   |Hey Berry! SHUT UP            |heyberryshutup                |1.20.1-2.0.4        |DONE      |Manifest: NOSIGNATURE
+		YungsBridges-1.20-Forge-4.0.3.jar                 |YUNG's Bridges                |yungsbridges                  |1.20-Forge-4.0.3    |DONE      |Manifest: NOSIGNATURE
+		Botania-1.20.1-446-FORGE.jar                      |Botania                       |botania                       |1.20.1-446-FORGE    |DONE      |Manifest: NOSIGNATURE
+		resourcefulconfig-forge-1.20.1-2.1.2.jar          |Resourcefulconfig             |resourcefulconfig             |2.1.2               |DONE      |Manifest: NOSIGNATURE
+		IntegratedScripting-1.20.1-1.0.5.jar              |IntegratedScripting           |integratedscripting           |1.0.5               |DONE      |Manifest: NOSIGNATURE
+		spark-1.10.53-forge.jar                           |spark                         |spark                         |1.10.53             |DONE      |Manifest: NOSIGNATURE
+		curios-forge-5.11.0+1.20.1.jar                    |Curios API                    |curios                        |5.11.0+1.20.1       |DONE      |Manifest: NOSIGNATURE
+		corail_woodcutter-1.20.1-3.0.6.jar                |Corail Woodcutter             |corail_woodcutter             |3.0.6               |DONE      |Manifest: NOSIGNATURE
+		Searchables-forge-1.20.1-1.0.3.jar                |Searchables                   |searchables                   |1.0.3               |DONE      |Manifest: NOSIGNATURE
+		Measurements-forge-1.20.1-2.0.0.jar               |Measurements                  |measurements                  |2.0.0               |DONE      |Manifest: NOSIGNATURE
+		Cobblemon-forge-1.5.2+1.20.1.jar                  |Cobblemon                     |cobblemon                     |1.5.2+1.20.1        |DONE      |Manifest: NOSIGNATURE
+		Nuclear Science-1.20.1-0.6.1-1.jar                |Nuclear Science               |nuclearscience                |1.20.1-0.6.1-1      |DONE      |Manifest: NOSIGNATURE
+		ApothicAttributes-1.20.1-1.3.7.jar                |Apothic Attributes            |attributeslib                 |1.3.7               |DONE      |Manifest: NOSIGNATURE
+		Butchersdelight Foods beta 1.20.1 1.0.3.jar       |ButchersDelightfoods          |butchersdelightfoods          |1.20.11.0.3         |DONE      |Manifest: NOSIGNATURE
+		tombstone-1.20.1-8.8.6.jar                        |Corail Tombstone              |tombstone                     |8.8.6               |DONE      |Manifest: NOSIGNATURE
+		fightorflight-forge-0.5.3.jar                     |Cobblemon Fight or Flight     |fightorflight                 |0.5.0               |DONE      |Manifest: NOSIGNATURE
+		NaturesAura-39.4.jar                              |NaturesAura                   |naturesaura                   |39.4                |DONE      |Manifest: NOSIGNATURE
+		Butchersdelight beta 1.20.1 2.1.0.jar             |ButchersDelight               |butchersdelight               |1.20.12.1.0         |DONE      |Manifest: NOSIGNATURE
+		ApothicCurios-1.20.1-1.0.3d.jar                   |Apothic Curios                |apothiccurios                 |1.0.3d              |DONE      |Manifest: NOSIGNATURE
+		YungsBetterEndIsland-1.20-Forge-2.0.6.jar         |YUNG's Better End Island      |betterendisland               |1.20-Forge-2.0.6    |DONE      |Manifest: NOSIGNATURE
+		AdChimneys-1.20.1-10.1.15.0-build.0828.jar        |Advanced Chimneys             |adchimneys                    |10.1.15.0           |DONE      |Manifest: NOSIGNATURE
+		CodeChickenLib-1.20.1-4.4.0.516-universal.jar     |CodeChicken Lib               |codechickenlib                |4.4.0.516           |DONE      |Manifest: 31:e6:db:63:47:4a:6e:e0:0a:2c:11:d1:76:db:4e:82:ff:56:2d:29:93:d2:e5:02:bd:d3:bd:9d:27:47:a5:71
+		YungsBetterMineshafts-1.20-Forge-4.0.4.jar        |YUNG's Better Mineshafts      |bettermineshafts              |1.20-Forge-4.0.4    |DONE      |Manifest: NOSIGNATURE
+		crafting-on-a-stick-1.20.1-1.1.5.jar              |Crafting On A Stick           |crafting_on_a_stick           |1.1.5               |DONE      |Manifest: NOSIGNATURE
+		YungsBetterJungleTemples-1.20-Forge-2.0.5.jar     |YUNG's Better Jungle Temples  |betterjungletemples           |1.20-Forge-2.0.5    |DONE      |Manifest: NOSIGNATURE
+		SmartBrainLib-neoforge-1.20.1-1.15.jar            |SmartBrainLib                 |smartbrainlib                 |1.15                |DONE      |Manifest: NOSIGNATURE
+		jei-1.20.1-forge-15.20.0.105.jar                  |Just Enough Items             |jei                           |15.20.0.105         |DONE      |Manifest: NOSIGNATURE
+		forge-tardis_refined-mc1.20.1-v2.0.7.jar          |TARDIS Refined                |tardis_refined                |2.0.7               |DONE      |Manifest: NOSIGNATURE
+		AttributeFix-Forge-1.20.1-21.0.4.jar              |AttributeFix                  |attributefix                  |21.0.4              |DONE      |Manifest: eb:c4:b1:67:8b:f9:0c:db:dc:4f:01:b1:8e:61:64:39:4c:10:85:0b:a6:c4:c7:48:f0:fa:95:f2:cb:08:3a:e5
+		Create-Cobblemon-Forge-v0.4.jar                   |Create: Cobblemon Industrializ|create_cobblemon              |0.4                 |DONE      |Manifest: NOSIGNATURE
+		ccbx-1.20.1-1.3.jar                               |CC: BallistiX                 |ccbx                          |1.20.1-1.3          |DONE      |Manifest: NOSIGNATURE
+		fastasyncworldsave-1.20.1-2.0.jar                 |fastasyncworldsave mod        |fastasyncworldsave            |1.20.1-2.0          |DONE      |Manifest: NOSIGNATURE
+		NaturesCompass-1.20.1-1.11.2-forge.jar            |Nature's Compass              |naturescompass                |1.20.1-1.11.2-forge |DONE      |Manifest: NOSIGNATURE
+		extra_shells-1.20.1-v1.0.7.jar                    |extra_shells                  |extra_shells                  |1.20.1-v1.0.7       |DONE      |Manifest: NOSIGNATURE
+		AdHooks-1.20.1-10.1.2.1-build.0895.jar            |Advanced Hook Launchers       |adhooks                       |10.1.2.1            |DONE      |Manifest: NOSIGNATURE
+		farmingforblockheads-forge-1.20.1-14.0.2.jar      |Farming for Blockheads        |farmingforblockheads          |14.0.2              |DONE      |Manifest: NOSIGNATURE
+		pneumaticcraft-repressurized-6.0.18+mc1.20.1.jar  |PneumaticCraft: Repressurized |pneumaticcraft                |6.0.18+mc1.20.1     |DONE      |Manifest: NOSIGNATURE
+		evilcraftdelight-1.0.1.1-1.20.1.jar               |EvilCraft Delight             |evilcraftdelight              |1.0.1.1-1.20.1      |DONE      |Manifest: NOSIGNATURE
+		Electrodynamics-1.20.1-0.9.1-1.jar                |Electrodynamics               |electrodynamics               |1.20.1-0.9.1-1      |DONE      |Manifest: NOSIGNATURE
+		JeiTweaker-forge-1.20.1-8.0.6.jar                 |JeiTweaker                    |jeitweaker                    |8.0.6               |DONE      |Manifest: NOSIGNATURE
+		fusion-1.1.1-forge-mc1.20.1.jar                   |Fusion                        |fusion                        |1.1.1               |DONE      |Manifest: NOSIGNATURE
+		CraftTweaker-forge-1.20.1-14.0.44.jar             |CraftTweaker                  |crafttweaker                  |14.0.44             |DONE      |Manifest: NOSIGNATURE
+		Mekanism-1.20.1-10.4.10.66.jar                    |Mekanism                      |mekanism                      |10.4.10             |DONE      |Manifest: NOSIGNATURE
+		EdivadLib-1.20.1-2.0.1.jar                        |EdivadLib                     |edivadlib                     |2.0.1               |DONE      |Manifest: NOSIGNATURE
+		forge-1.20.1-47.3.12-universal.jar                |Forge                         |forge                         |47.3.12             |DONE      |Manifest: 84:ce:76:e8:45:35:e4:0e:63:86:df:47:59:80:0f:67:6c:c1:5f:6e:5f:4d:b3:54:47:1a:9f:7f:ed:5e:f2:90
+		IntegratedCrafting-1.20.1-1.1.9.jar               |IntegratedCrafting            |integratedcrafting            |1.1.9               |DONE      |Manifest: NOSIGNATURE
+		ZeroCore2-1.20.1-2.1.47.jar                       |Zero CORE 2                   |zerocore                      |1.20.1-2.1.47       |DONE      |Manifest: NOSIGNATURE
+		client-1.20.1-20230612.114412-srg.jar             |Minecraft                     |minecraft                     |1.20.1              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		cofh_core-1.20.1-11.0.2.56.jar                    |CoFH Core                     |cofh_core                     |11.0.2              |DONE      |Manifest: NOSIGNATURE
+		thermal_core-1.20.1-11.0.6.24.jar                 |Thermal Series                |thermal                       |11.0.6              |DONE      |Manifest: NOSIGNATURE
+		thermal_integration-1.20.1-11.0.1.27.jar          |Thermal Integration           |thermal_integration           |11.0.1              |DONE      |Manifest: NOSIGNATURE
+		thermal_innovation-1.20.1-11.0.1.23.jar           |Thermal Innovation            |thermal_innovation            |11.0.1              |DONE      |Manifest: NOSIGNATURE
+		thermal_foundation-1.20.1-11.0.6.70.jar           |Thermal Foundation            |thermal_foundation            |11.0.6              |DONE      |Manifest: NOSIGNATURE
+		thermal_locomotion-1.20.1-11.0.1.19.jar           |Thermal Locomotion            |thermal_locomotion            |11.0.1              |DONE      |Manifest: NOSIGNATURE
+		thermal_dynamics-1.20.1-11.0.1.23.jar             |Thermal Dynamics              |thermal_dynamics              |11.0.1              |DONE      |Manifest: NOSIGNATURE
+		MouseTweaks-forge-mc1.20.1-2.25.1.jar             |Mouse Tweaks                  |mousetweaks                   |2.25.1              |DONE      |Manifest: NOSIGNATURE
+		ImmersiveEngineering-1.20.1-10.1.0-171.jar        |Immersive Engineering         |immersiveengineering          |1.20.1-10.1.0-171   |DONE      |Manifest: 44:39:94:cf:1d:8c:be:3c:7f:a9:ee:f4:1e:63:a5:ac:61:f9:c2:87:d5:5b:d9:d6:8c:b5:3e:96:5d:8e:3f:b7
+		alltheleaks-0.0.2-beta+1.20.1-forge.jar           |All The Leaks                 |alltheleaks                   |0.0.2-beta+1.20.1-fo|DONE      |Manifest: NOSIGNATURE
+		AdLods-1.20.1-8.1.3.0-build.0820.jar              |Large Ore Deposits            |adlods                        |8.1.3.0             |DONE      |Manifest: NOSIGNATURE
+		kffmod-4.11.0.jar                                 |Kotlin For Forge              |kotlinforforge                |4.11.0              |DONE      |Manifest: NOSIGNATURE
+		jeiintegration_1.20.1-10.0.0.jar                  |JEI Integration               |jeiintegration                |10.0.0              |DONE      |Manifest: NOSIGNATURE
+		flywheel-forge-1.20.1-0.6.11-13.jar               |Flywheel                      |flywheel                      |0.6.11-13           |DONE      |Manifest: NOSIGNATURE
+		IntegratedDynamics-1.20.1-1.23.13.jar             |IntegratedDynamics            |integrateddynamics            |1.23.13             |DONE      |Manifest: NOSIGNATURE
+		thermal_cultivation-1.20.1-11.0.1.24.jar          |Thermal Cultivation           |thermal_cultivation           |11.0.1              |DONE      |Manifest: NOSIGNATURE
+		[1.20.1] SecurityCraft v1.9.11.jar                |SecurityCraft                 |securitycraft                 |1.9.11              |DONE      |Manifest: NOSIGNATURE
+		ae2qolrecipes-neoforge-1.20.1-1.2.0.jar           |AE2 QoL Recipes               |ae2qolrecipes                 |1.2.0               |DONE      |Manifest: NOSIGNATURE
+		ImmediatelyFast-Forge-1.3.2+1.20.4.jar            |ImmediatelyFast               |immediatelyfast               |1.3.2+1.20.4        |DONE      |Manifest: NOSIGNATURE
+		oceansdelight-1.0.2-1.20.jar                      |Ocean's Delight               |oceansdelight                 |1.0.2-1.20          |DONE      |Manifest: NOSIGNATURE
+		appleskin-forge-mc1.20.1-2.5.1.jar                |AppleSkin                     |appleskin                     |2.5.1+mc1.20.1      |DONE      |Manifest: NOSIGNATURE
+		Vampirism-1.20.1-1.10.11.jar                      |Vampirism                     |vampirism                     |1.10.11             |DONE      |Manifest: NOSIGNATURE
+		lootr-forge-1.20-0.7.34.89.jar                    |Lootr                         |lootr                         |0.7.34.87           |DONE      |Manifest: NOSIGNATURE
+		occultism-1.20.1-1.140.2.jar                      |Occultism                     |occultism                     |1.140.2             |DONE      |Manifest: NOSIGNATURE
+		Deep Dark Regrowth 1.2.6.1 - 1.20.1.jar           |Deep Dark: Regrowth           |deep_dark_regrowth            |1.2.6.1             |DONE      |Manifest: NOSIGNATURE
+		valkyrienskies-120-2.3.0-beta.5.jar               |Valkyrien Skies 2             |valkyrienskies                |2.3.0-beta.5        |DONE      |Manifest: NOSIGNATURE
+		ExtremeSoundMuffler-3.48-forge-1.20.1.jar         |Extreme Sound Muffler         |extremesoundmuffler           |3.48                |DONE      |Manifest: NOSIGNATURE
+		ad_astra-forge-1.20.1-1.15.19.jar                 |Ad Astra                      |ad_astra                      |1.15.19             |DONE      |Manifest: NOSIGNATURE
+		CyclopsCore-1.20.1-1.19.5.jar                     |Cyclops Core                  |cyclopscore                   |1.19.5              |DONE      |Manifest: NOSIGNATURE
+		create_eureka-1.0.0+forge-1.20.1.jar              |Create: Eureka!               |create_eureka                 |1.0.0+forge-1.20.1  |DONE      |Manifest: NOSIGNATURE
+		kuma-api-forge-20.1.8+1.20.1.jar                  |KumaAPI                       |kuma_api                      |20.1.8              |DONE      |Manifest: NOSIGNATURE
+		YungsBetterWitchHuts-1.20-Forge-3.0.3.jar         |YUNG's Better Witch Huts      |betterwitchhuts               |1.20-Forge-3.0.3    |DONE      |Manifest: NOSIGNATURE
+		netherportalfix-forge-1.20-13.0.1.jar             |NetherPortalFix               |netherportalfix               |13.0.1              |DONE      |Manifest: NOSIGNATURE
+		geckolib-neoforge-1.20.1-4.4.9.jar                |GeckoLib 4                    |geckolib                      |4.4.9               |DONE      |Manifest: NOSIGNATURE
+		cave_dweller-1.20.1-1.6.4.jar                     |cave_dweller                  |cave_dweller                  |1.6.4               |DONE      |Manifest: NOSIGNATURE
+		ars_nouveau-1.20.1-4.12.4-all.jar                 |Ars Nouveau                   |ars_nouveau                   |4.12.4              |DONE      |Manifest: NOSIGNATURE
+		YungsBetterOceanMonuments-1.20-Forge-3.0.4.jar    |YUNG's Better Ocean Monuments |betteroceanmonuments          |1.20-Forge-3.0.4    |DONE      |Manifest: NOSIGNATURE
+		gpumemleakfix-1.20.1-1.8.jar                      |Gpu memory leak fix           |gpumemleakfix                 |1.20.1-1.8          |DONE      |Manifest: NOSIGNATURE
+		eureka-1201-1.5.1-beta.3.jar                      |VS Eureka Mod                 |vs_eureka                     |1.5.1-beta.3        |DONE      |Manifest: NOSIGNATURE
+		cookingforblockheads-forge-1.20.1-16.0.9.jar      |CookingForBlockheads          |cookingforblockheads          |16.0.9              |DONE      |Manifest: NOSIGNATURE
+		Controlling-forge-1.20.1-12.0.2.jar               |Controlling                   |controlling                   |12.0.2              |DONE      |Manifest: NOSIGNATURE
+		Placebo-1.20.1-8.6.2.jar                          |Placebo                       |placebo                       |8.6.2               |DONE      |Manifest: NOSIGNATURE
+		citadel-2.6.0-1.20.1.jar                          |Citadel                       |citadel                       |2.6.0               |DONE      |Manifest: NOSIGNATURE
+		iceandfire-2.1.13-1.20.1-beta-5.jar               |Ice and Fire                  |iceandfire                    |2.1.13-1.20.1       |DONE      |Manifest: NOSIGNATURE
+		mixinextras-forge-0.4.1.jar                       |MixinExtras                   |mixinextras                   |0.4.1               |DONE      |Manifest: NOSIGNATURE
+		Bookshelf-Forge-1.20.1-20.2.13.jar                |Bookshelf                     |bookshelf                     |20.2.13             |DONE      |Manifest: eb:c4:b1:67:8b:f9:0c:db:dc:4f:01:b1:8e:61:64:39:4c:10:85:0b:a6:c4:c7:48:f0:fa:95:f2:cb:08:3a:e5
+		endercrop-1.20.1-1.7.0.jar                        |Ender Crop                    |endercrop                     |1.20.1-1.7.0        |DONE      |Manifest: NOSIGNATURE
+		evenmoredragons-1.20.1-1.0.4.jar                  |Dragon Mounts: Even More Drago|evenmoredragons               |1.0.4               |DONE      |Manifest: NOSIGNATURE
+		Steam_Rails-1.6.7+forge-mc1.20.1.jar              |Create: Steam 'n' Rails       |railways                      |1.6.7+forge-mc1.20.1|DONE      |Manifest: NOSIGNATURE
+		MekanismGenerators-1.20.1-10.4.10.66.jar          |Mekanism: Generators          |mekanismgenerators            |10.4.10             |DONE      |Manifest: NOSIGNATURE
+		AdPother-1.20.1-8.1.23.0-build.0852.jar           |Pollution of the Realms       |adpother                      |8.1.23.0            |DONE      |Manifest: NOSIGNATURE
+		dragonmounts-1.20.1-1.2.3-beta.jar                |Dragon Mounts: Legacy         |dragonmounts                  |1.2.3-beta          |DONE      |Manifest: NOSIGNATURE
+		dragon_mounts_patches-1.0.0.jar                   |Dragon Mounts Patches         |dragon_mounts_patches         |1.0.0               |DONE      |Manifest: NOSIGNATURE
+		PrettyPipes-1.15.0-all.jar                        |PrettyPipes                   |prettypipes                   |1.15.0              |DONE      |Manifest: NOSIGNATURE
+		arseng-1.2.0.jar                                  |Ars Énergistique              |arseng                        |1.2.0               |DONE      |Manifest: NOSIGNATURE
+		FarmersDelight-1.20.1-1.2.5.jar                   |Farmer's Delight              |farmersdelight                |1.20.1-1.2.5        |DONE      |Manifest: NOSIGNATURE
+		HostileNeuralNetworks-1.20.1-5.3.3.jar            |Hostile Neural Networks       |hostilenetworks               |5.3.3               |DONE      |Manifest: NOSIGNATURE
+		CommonCapabilities-1.20.1-2.9.3.jar               |CommonCapabilities            |commoncapabilities            |2.9.3               |DONE      |Manifest: NOSIGNATURE
+		crashutilities-8.1.4.jar                          |Crash Utilities               |crashutilities                |8.1.4               |DONE      |Manifest: NOSIGNATURE
+		SimpleTMsForge-1.1.2.jar                          |Cobblemon: Simple TM's        |simpletms                     |1.1.2               |DONE      |Manifest: NOSIGNATURE
+		getittogetherdrops-forge-1.20-1.3.jar             |Get It Together, Drops!       |getittogetherdrops            |1.3                 |DONE      |Manifest: NOSIGNATURE
+		MekanismAdditions-1.20.1-10.4.10.66.jar           |Mekanism: Additions           |mekanismadditions             |10.4.10             |DONE      |Manifest: NOSIGNATURE
+		fuelgoeshere-1.20.0-1.0.1.jar                     |Fuel Goes Here                |fuelgoeshere                  |1.20.0-1.0.1        |DONE      |Manifest: NOSIGNATURE
+		colorfulhearts-forge-1.20.1-4.3.16.jar            |Colorful Hearts               |colorfulhearts                |4.3.16              |DONE      |Manifest: NOSIGNATURE
+		industrial-foregoing-souls-1.20.1-1.0.9.jar       |Industrial Foregoing Souls    |industrialforegoingsouls      |1.20.1-1.0.9        |DONE      |Manifest: NOSIGNATURE
+		born_in_chaos_[Forge]1.20.1_1.5.2.jar             |Born in Chaos                 |born_in_chaos_v1              |1.5.2               |DONE      |Manifest: NOSIGNATURE
+		Patchouli-1.20.1-84-FORGE.jar                     |Patchouli                     |patchouli                     |1.20.1-84-FORGE     |DONE      |Manifest: NOSIGNATURE
+		ars_additions-1.20.1-1.6.7.jar                    |Ars Additions                 |ars_additions                 |1.20.1-1.6.7        |DONE      |Manifest: NOSIGNATURE
+		blockui-1.20.1-1.0.186-beta.jar                   |UI Library Mod                |blockui                       |1.20.1-1.0.186-beta |DONE      |Manifest: NOSIGNATURE
+		thermal_expansion-1.20.1-11.0.1.29.jar            |Thermal Expansion             |thermal_expansion             |11.0.1              |DONE      |Manifest: NOSIGNATURE
+		IntegratedTunnels-1.20.1-1.8.32.jar               |IntegratedTunnels             |integratedtunnels             |1.8.32              |DONE      |Manifest: NOSIGNATURE
+		elevatorid-1.20.1-lex-1.9.jar                     |Elevator Mod                  |elevatorid                    |1.20.1-lex-1.9      |DONE      |Manifest: NOSIGNATURE
+		ftb-ultimine-forge-2001.1.5.jar                   |FTB Ultimine                  |ftbultimine                   |2001.1.5            |DONE      |Manifest: NOSIGNATURE
+		YungsBetterStrongholds-1.20-Forge-4.0.3.jar       |YUNG's Better Strongholds     |betterstrongholds             |1.20-Forge-4.0.3    |DONE      |Manifest: NOSIGNATURE
+		resourcefullib-forge-1.20.1-2.1.29.jar            |Resourceful Lib               |resourcefullib                |2.1.29              |DONE      |Manifest: NOSIGNATURE
+		MekanismTools-1.20.1-10.4.10.66.jar               |Mekanism: Tools               |mekanismtools                 |10.4.10             |DONE      |Manifest: NOSIGNATURE
+		BridgingMod-2.5.1+1.20.1.forge-release.jar        |Bridging Mod                  |bridgingmod                   |2.5.1+1.20.1        |DONE      |Manifest: NOSIGNATURE
+		bjornlib-forge-1.0.19.5-1.20.1.jar                |BjornLib                      |bjornlib                      |1.0.19.5            |DONE      |Manifest: NOSIGNATURE
+		deeperdarker-forge-1.20.1-1.3.3.jar               |Deeper and Darker             |deeperdarker                  |1.3.3               |DONE      |Manifest: NOSIGNATURE
+		architectury-9.2.14-forge.jar                     |Architectury                  |architectury                  |9.2.14              |DONE      |Manifest: NOSIGNATURE
+		ftb-library-forge-2001.2.6.jar                    |FTB Library                   |ftblibrary                    |2001.2.6            |DONE      |Manifest: NOSIGNATURE
+		ftb-filter-system-forge-1.0.2.jar                 |FTB Filter System             |ftbfiltersystem               |1.0.2               |DONE      |Manifest: NOSIGNATURE
+		findme-3.2.1-forge.jar                            |FindMe                        |findme                        |3.2.1               |DONE      |Manifest: NOSIGNATURE
+		ftb-teams-forge-2001.3.0.jar                      |FTB Teams                     |ftbteams                      |2001.3.0            |DONE      |Manifest: NOSIGNATURE
+		ftb-quests-forge-2001.4.9.jar                     |FTB Quests                    |ftbquests                     |2001.4.9            |DONE      |Manifest: NOSIGNATURE
+		ftb-ranks-forge-2001.1.3.jar                      |FTB Ranks                     |ftbranks                      |2001.1.3            |DONE      |Manifest: NOSIGNATURE
+		ftb-essentials-forge-2001.2.2.jar                 |FTB Essentials                |ftbessentials                 |2001.2.2            |DONE      |Manifest: NOSIGNATURE
+		cc-tweaked-1.20.1-forge-1.113.1.jar               |CC: Tweaked                   |computercraft                 |1.113.1             |DONE      |Manifest: NOSIGNATURE
+		AI-Improvements-1.20-0.5.2.jar                    |AI-Improvements               |aiimprovements                |0.5.2               |DONE      |Manifest: NOSIGNATURE
+		cupboard-1.20.1-2.7.jar                           |Cupboard utilities            |cupboard                      |1.20.1-2.7          |DONE      |Manifest: NOSIGNATURE
+		ExtremeReactors2-1.20.1-2.0.90.jar                |Extreme Reactors              |bigreactors                   |1.20.1-2.0.90       |DONE      |Manifest: NOSIGNATURE
+		ars_ocultas-1.20.1-1.2.2-all.jar                  |Ars Ocultas                   |ars_ocultas                   |1.2.2               |DONE      |Manifest: NOSIGNATURE
+		productivebees-1.20.1-12.6.0.jar                  |Productive Bees               |productivebees                |1.20.1-12.6.0       |DONE      |Manifest: NOSIGNATURE
+		monolib-forge-1.20.1-1.3.0.jar                    |MonoLib                       |monolib                       |1.3.0               |DONE      |Manifest: NOSIGNATURE
+		disenchanting_table-forge-1.20.1-3.0.1.jar        |Dis-Enchanting Table          |disenchanting_table           |3.0.1               |DONE      |Manifest: NOSIGNATURE
+		bwncr-forge-1.20.1-3.17.1.jar                     |Bad Wither No Cookie Reloaded |bwncr                         |3.17.1              |DONE      |Manifest: NOSIGNATURE
+		Ballistix-1.20.1-0.7.0-6.jar                      |Ballistix                     |ballistix                     |1.20.1-0.7.0-6      |DONE      |Manifest: NOSIGNATURE
+		polylib-forge-2000.0.3-build.143.jar              |PolyLib                       |polylib                       |2000.0.3-build.143  |DONE      |Manifest: NOSIGNATURE
+		productivelib-1.20.1-0.0.4.jar                    |Productive Lib                |productivelib                 |1.20.1-0.0.4        |DONE      |Manifest: NOSIGNATURE
+		create-1.20.1-0.5.1.j.jar                         |Create                        |create                        |0.5.1.j             |DONE      |Manifest: NOSIGNATURE
+		ars_creo-1.20.1-4.1.0.jar                         |Ars Creo                      |ars_creo                      |4.1.0               |DONE      |Manifest: NOSIGNATURE
+		waystones-forge-1.20-14.1.6.jar                   |Waystones                     |waystones                     |14.1.6              |DONE      |Manifest: NOSIGNATURE
+		Clumps-forge-1.20.1-12.0.0.4.jar                  |Clumps                        |clumps                        |12.0.0.4            |DONE      |Manifest: NOSIGNATURE
+		DimStorage-1.20.1-8.0.1.jar                       |DimStorage                    |dimstorage                    |8.0.1               |DONE      |Manifest: NOSIGNATURE
+		charginggadgets-1.11.0.jar                        |Charging Gadgets              |charginggadgets               |1.11.0              |DONE      |Manifest: NOSIGNATURE
+		ftbbackups2-forge-1.20-1.0.23.jar                 |FTB Backups 2                 |ftbbackups2                   |1.0.23              |DONE      |Manifest: NOSIGNATURE
+		ExplorersCompass-1.20.1-1.3.3-forge.jar           |Explorer's Compass            |explorerscompass              |1.20.1-1.3.3-forge  |DONE      |Manifest: NOSIGNATURE
+		ToastControl-1.20.1-8.0.3.jar                     |Toast Control                 |toastcontrol                  |8.0.3               |DONE      |Manifest: NOSIGNATURE
+		Terralith_1.20.x_v2.5.4.jar                       |Terralith                     |terralith                     |2.5.4               |DONE      |Manifest: NOSIGNATURE
+		EnderStorage-1.20.1-2.11.0.188-universal.jar      |EnderStorage                  |enderstorage                  |2.11.0.188          |DONE      |Manifest: 31:e6:db:63:47:4a:6e:e0:0a:2c:11:d1:76:db:4e:82:ff:56:2d:29:93:d2:e5:02:bd:d3:bd:9d:27:47:a5:71
+		ftb-chunks-forge-2001.3.3.jar                     |FTB Chunks                    |ftbchunks                     |2001.3.3            |DONE      |Manifest: NOSIGNATURE
+		ftb-xmod-compat-forge-2.1.1.jar                   |FTB XMod Compat               |ftbxmodcompat                 |2.1.1               |DONE      |Manifest: NOSIGNATURE
+		toofast-1.20-0.4.3.5.jar                          |Too Fast                      |toofast                       |0.4.3.5             |DONE      |Manifest: NOSIGNATURE
+		craftingtweaks-forge-1.20.1-18.2.5.jar            |CraftingTweaks                |craftingtweaks                |18.2.5              |DONE      |Manifest: NOSIGNATURE
+		endermanoverhaul-forge-1.20.1-1.0.4.jar           |Enderman Overhaul             |endermanoverhaul              |1.0.4               |DONE      |Manifest: NOSIGNATURE
+		titanium-1.20.1-3.8.32.jar                        |Titanium                      |titanium                      |3.8.32              |DONE      |Manifest: NOSIGNATURE
+		mixinsquared-forge-0.2.0.jar                      |MixinSquared                  |mixinsquared                  |0.2.0               |DONE      |Manifest: NOSIGNATURE
+		Jade-1.20.1-Forge-11.12.2.jar                     |Jade                          |jade                          |11.12.2+forge       |DONE      |Manifest: NOSIGNATURE
+		appliedenergistics2-forge-15.2.13.jar             |Applied Energistics 2         |ae2                           |15.2.13             |DONE      |Manifest: NOSIGNATURE
+		AE2NetworkAnalyzer-1.20-1.0.6-forge.jar           |AE2NetworkAnalyzer            |ae2netanalyser                |1.20-1.0.6-forge    |DONE      |Manifest: NOSIGNATURE
+		AppliedFlux-1.20-1.1.9-forge.jar                  |AppliedFlux                   |appflux                       |1.20-1.1.9-forge    |DONE      |Manifest: NOSIGNATURE
+		merequester-forge-1.20.1-1.1.5.jar                |ME Requester                  |merequester                   |1.20.1-1.1.5        |DONE      |Manifest: NOSIGNATURE
+		ExtendedAE-1.20-1.2.1-forge.jar                   |ExtendedAE                    |expatternprovider             |1.20-1.2.1-forge    |DONE      |Manifest: NOSIGNATURE
+		AdvancedAE-0.3.3-1.20.1.jar                       |Advanced AE                   |advanced_ae                   |0.3.3-1.20.1        |DONE      |Manifest: NOSIGNATURE
+		theurgy-1.20.1-1.23.1.jar                         |Theurgy                       |theurgy                       |1.23.1              |DONE      |Manifest: NOSIGNATURE
+		EnderIO-1.20.1-6.2.2-beta-all.jar                 |Ender IO                      |enderio                       |6.2.2-beta          |DONE      |Manifest: NOSIGNATURE
+		easy-villagers-forge-1.20.1-1.1.23.jar            |Easy Villagers                |easy_villagers                |1.20.1-1.1.23       |DONE      |Manifest: NOSIGNATURE
+		ars_elemental-1.20.1-0.6.7.7.jar                  |Ars Elemental                 |ars_elemental                 |0.6.7.7             |DONE      |Manifest: NOSIGNATURE
+		Applied-Botanics-forge-1.5.0.jar                  |Applied Botanics              |appbot                        |1.5.0               |DONE      |Manifest: NOSIGNATURE
+		buildinggadgets2-1.0.7.jar                        |Building Gadgets 2            |buildinggadgets2              |1.0.7               |DONE      |Manifest: NOSIGNATURE
+		modonomicon-1.20.1-forge-1.77.3.jar               |Modonomicon                   |modonomicon                   |1.77.3              |DONE      |Manifest: NOSIGNATURE
+		creeperoverhaul-3.0.2-forge.jar                   |Creeper Overhaul              |creeperoverhaul               |3.0.2               |DONE      |Manifest: NOSIGNATURE
+		alexsdelight-1.5.jar                              |Alex's Delight                |alexsdelight                  |1.5                 |DONE      |Manifest: NOSIGNATURE
+		YetAnotherConfigLib-3.6.1+1.20.1-forge.jar        |YetAnotherConfigLib           |yet_another_config_lib_v3     |3.6.1+1.20.1-forge  |DONE      |Manifest: NOSIGNATURE
+		solcarrot-1.20.1-1.15.0.jar                       |Spice of Life: Carrot Edition |solcarrot                     |1.15.0              |DONE      |Manifest: NOSIGNATURE
+		Enhanced-Celestials-Forge-1.20.1-5.0.1.0.jar      |Enhanced Celestials           |enhancedcelestials            |1.20.1-5.0.1.0      |DONE      |Manifest: NOSIGNATURE
+		Corgilib-Forge-1.20.1-4.0.3.2.jar                 |CorgiLib                      |corgilib                      |4.0.3.2             |DONE      |Manifest: NOSIGNATURE
+		Applied-Mekanistics-1.4.2.jar                     |Applied Mekanistics           |appmek                        |1.4.2               |DONE      |Manifest: NOSIGNATURE
+		megacells-forge-2.4.5-1.20.1.jar                  |MEGA Cells                    |megacells                     |2.4.5-1.20.1        |DONE      |Manifest: NOSIGNATURE
+		flickerfix-1.20.1-4.0.1.jar                       |FlickerFix                    |flickerfix                    |4.0.1               |DONE      |Manifest: NOSIGNATURE
+		productivetrees-1.20.1-0.2.6.jar                  |Productive Trees              |productivetrees               |1.20.1-0.2.6        |DONE      |Manifest: NOSIGNATURE
+		createaddition-1.20.1-1.2.4e.jar                  |Create Crafts & Additions     |createaddition                |1.20.1-1.2.4e       |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 71594b45-bac9-4fe7-a547-0a9fcbc1aaa5
+	Flywheel Backend: GL33 Instanced Arrays
+	FML: 47.3
+	Forge: net.minecraftforge:47.3.12

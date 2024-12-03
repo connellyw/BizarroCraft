@@ -1,0 +1,33 @@
+
+[Implants]
+	#Scales all implant humanity on craft
+	implantHumanityScaling = 1.0
+	#The maximum quality implants can reach. This is automatically overridden if the implant's max quality is set in its JSON config
+	maxImplantQuality = 150.0
+	#If enabled, implants will lose quality upon death and break if that quality reaches 0
+	hardcoreImplants = false
+	#Scales how much quality is lost on death (default: 10%)
+	hardcoreImplantDamageScaling = 1.0
+
+[General]
+	#Disables the vanilla jump crit
+	disableVanillaCrit = true
+	#If true, fall damage will be reset when gravity is negative 
+	gravityFallDamage = true
+	#Enables the Zoe critical hit (default: true)
+	zoeCrit = true
+	#If enabled, crits can only be dealt on a full sweep (default: true)
+	zoeCritSweep = true
+	#If enabled, knockback resistance will be calculated with crit knockback (default: true)
+	zoeCritKnockback = false
+	#Allows high-speed impact with blocks to cause an explosion
+	collisionImpact = false
+	#If enabled, will prevent the Volt attribute from dealing damage if the player's hand isn't empty (default: true)
+	disableArmedVolt = true
+
+[Entities]
+	#Scales how much extra damage mechanical mobs take from volt
+	voltMechanicalDamageScaling = 1.5
+	#Drops implants from mechanical mobs with a 1 in X chance (X being the number here. Default: 8)
+	implantDropRate = 8.0
+

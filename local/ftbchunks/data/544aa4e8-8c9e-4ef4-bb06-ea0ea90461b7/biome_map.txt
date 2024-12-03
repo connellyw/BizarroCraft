@@ -1,0 +1,7 @@
+#572 terralith:arid_highlands
+#008 minecraft:desert
+#711 terralith:desert_canyon
+#4CA minecraft:dripstone_caves
+#4E2 terralith:hot_shrubland
+#5FF minecraft:river
+#531 terralith:warm_river

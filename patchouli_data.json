@@ -1,5 +1,13 @@
 {
   "bookGuiScale": 0,
   "clickedVisualize": false,
-  "bookData": {}
+  "bookData": {
+    "buildinggadgets2:buildinggadgets2book": {
+      "viewedEntries": [
+        "buildinggadgets2:buildinggadget"
+      ],
+      "bookmarks": [],
+      "completedManualQuests": []
+    }
+  }
 }
